@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    This is the Students Page
+<div class="flex gap-2 p-4">
+    <input type="text" placeholder="Search Student" class="p-2 rounded-lg border w-full">
+    <button class="p-2 bg-black text-white rounded-lg"> Search </button>
+</div>
+<a href="" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Student </a>
+<h1 class="p-4"> All Students </h1>
+<table class="w-full">
+    <thead class="bg-black text-white">
+        <tr>
+            <th> # </th>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Age </th>
+        </tr>
+    </thead>
+</table>
+
 {% endblock %}

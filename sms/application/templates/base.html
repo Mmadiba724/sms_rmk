@@ -7,20 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title> Student Management System </title>
 </head>
 
 <body class="relative min-h-screen w-screen">
-    <nav class="bg-black flex gap-4 p-4 text-white">
-        <a class="" href="/"> Home </a>
-        <a class="" href="/students"> Students </a>
-        <a class="" href="/courses"> Courses  </a>
-        <a class="" href="/transactions"> Transactions </a>
-    </nav>
-
-    {% block content %}
-    {% endblock %}
-
+    <div class="grid grid-cols-10 min-h-screen">
+        <div class="col-span-2">
+            <nav class="bg-black flex flex-col gap-2 p-4 text-white h-full">
+                <a class="flex gap-2 items-center hover:bg-gray-800 cursor-pointer p-2" href="/"> <i class="fa fa-home"></i> Home </a>
+                <a class="flex gap-2 items-center hover:bg-gray-800 cursor-pointer p-2" href="/students"> <i class="fa fa-user"></i> Students </a>
+                <a class="flex gap-2 items-center hover:bg-gray-800 cursor-pointer p-2" href="/courses"> <i class="fa fa-school"></i> Courses  </a>
+                <a class="flex gap-2 items-center hover:bg-gray-800 cursor-pointer p-2" href="/transactions"> <i class="fa fa-wallet"></i> Transactions </a>
+            </nav>
+        </div>
+        <div class="col-span-8 p-2">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
     <footer class="absolute bottom-0 left-0 bg-black text-white text-center p-2 w-full">
         <span> Copyright &copy; 2024 - Refactory Academy </span>
     </footer>

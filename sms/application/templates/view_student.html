@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="p-4 flex gap-4 justify-end">
+        <a href="/student/edit/{{ student.id }}" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Edit Student </a>
+        <a href="/student/enroll/{{ student.id }}" class="p-2 bg-amber-500 text-white rounded-lg shadow-lg"> Enroll Student </a>
+        <a href="/student/delete/{{ student.id }}" class="p-2 bg-red-500 text-white rounded-lg shadow-lg"> Delete Student </a>
+    </div>
+    <div class="w-full grid grid-cols-10 p-4">
+        <div class="col-span-2 p-4">
+            <img src="https://picsum.photos/200" class="h-[150px] rounded-lg" alt="">
+        </div>
+        <div class="col-span-8 p-4">
+            <table class="w-full h-full">
+                <tr>
+                    <th> Name </th>
+                    <td> {{ student.first_name }} {{ student.last_name }} </td>
+                </tr>
+                <tr>
+                    <th> Email </th>
+                    <td> {{ student.email }} </td>
+                </tr>
+                <tr>
+                    <th> Age </th>
+                    <td> {{ student.age }} </td>
+                </tr>
+                <tr>
+                    <th> Gender </th>
+                    <td> {{ student.gender }} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h1 class="p-2"> {{ student.first_name }}'s Transactions </h1>
+    <table class="w-full mt-4">
+        <thead class="bg-black text-white">
+            <tr>
+                <th> # </th>
+                <th> Course </th>
+                <th> Amount Paid </th>
+                <th> Date Paid </th>
+                <th> Description </th>
+            </tr>
+        </thead>
+    </table>
+{% endblock %}
