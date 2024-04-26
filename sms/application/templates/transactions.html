@@ -3,27 +3,27 @@
 {% block content %}
 <div class="grid grid-cols-4 gap-8">
     <div class="text-center md:border-r">
-        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl"> 0 </h6>
+        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl"> {{ total_amount }} </h6>
         <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
-            Total
+            Total Amount
         </p>
     </div>
     <div class="text-center md:border-r">
-        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl">12.9K</h6>
+        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl"> {{ total_transactions }} </h6>
         <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
-            Paid
+            Total Transactions
         </p>
     </div>
     <div class="text-center md:border-r">
-        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl">48.3K</h6>
+        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl"> {{ total_today }} </h6>
         <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
-            Pending
+            Amount Today
         </p>
     </div>
     <div class="text-center">
-        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl">24.5K </h6>
+        <h6 class="text-2xl font-bold lg:text-5xl xl:text-6xl"> {{ total_avg }} </h6>
         <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
-            Last 24hrs
+            Avg Amount
         </p>
     </div>
 </div>
@@ -32,12 +32,20 @@
     <thead class="bg-black text-white">
         <tr>
             <th> # </th>
-            <th> Student Name </th>
-            <th> Course </th>
             <th> Amount Paid </th>
             <th> Date Paid </th>
             <th> Description </th>
         </tr>
     </thead>
+    <tbody>
+        {% for tx in all_transactions %}
+            <tr>
+                <td> TX-{{ tx.id }} </td>
+                <td> {{ tx.amount }} </td>
+                <td> {{ tx.date }} </td>
+                <td> {{ tx.description }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
 {% endblock %}

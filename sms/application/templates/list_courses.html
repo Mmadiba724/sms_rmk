@@ -1,19 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Course </a>
+<a href="/course/add" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Course </a>
 <h1 class="p-4"> All Courses </h1>
 
+<p class="text-sm text-gray-500 p-2"> {{ result_count }} Results </p>
 <table class="w-full">
     <thead class="bg-black text-white">
         <tr>
             <th> # </th>
             <th> Course Name </th>
-            <th> Price </th>
+            <th> Price (USD) </th>
             <th> Start Date </th>
-            <th> Duration </th>
+            <th> Duration (Weeks) </th>
         </tr>
     </thead>
+    <tbody>
+        {% for course in all_course_list %}
+            <tr>
+                <td> {{ course.id }} </td>
+                <td> <a href="/course/view/{{ course.id }}" class="text-blue-500"> {{ course.course_name }} </a> </td>
+                <td> {{ course.course_price }} </td>
+                <td> {{ course.start_date }} </td>
+                <td> {{ course.course_duration }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

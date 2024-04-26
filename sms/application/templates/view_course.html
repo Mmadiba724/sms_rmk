@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/ViITb4H096t
+-->
+
+<div class="container mx-auto py-8 px-4 md:px-6 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[2fr_1fr]">
+        <div>
+            <div class="space-y-4">
+                <h1 class="text-3xl font-bold"> {{ course_obj.course_name }} </h1>
+                <p class="text-gray-500">
+                    {{ course_obj.course_desc }}
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="text-lg font-medium">Duration</h3>
+                        <p> {{ course_obj.course_duration }} weeks</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium">Difficulty</h3>
+                        <p>Beginner</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium">Enrolled</h3>
+                        <p> {{ students_enrolled }} students</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <div class="rounded-lg bg-gray-100 p-4">
+                <h2 class="text-xl font-bold">Course Details</h2>
+                <div class="mt-4 space-y-2 text-sm">
+                    <div>
+                        <span class="font-medium">Start Date:</span> {{ course_obj.start_date }}
+                    </div>
+                    <div>
+                        <span class="font-medium">End Date:</span> {{ end_date }}
+                    </div>
+                    <div>
+                        <span class="font-medium">Location:</span> Online
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-lg bg-gray-100 p-4">
+                <h2 class="text-xl font-bold">Enrollment</h2>
+                <div class="mt-4 flex flex-col gap-2 text-sm">
+                    <div>
+                        <span class="font-medium">Enrollment Fee:</span> ${{ course_obj.course_price }}
+                    </div>
+                    <div>
+                        <span class="font-medium">Enrollment Status:</span> Open
+                    </div>
+                    <a class="p-2 bg-green-500 rounded-lg shadow-lg m-4">
+                        Enroll Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-8">
+        <h2 class="text-2xl font-bold">Enrolled Students</h2>
+        <div class="mt-4 overflow-x-auto">
+            <div class="relative w-full overflow-auto">
+                <table class="w-full caption-bottom text-sm">
+                    <thead class="[&amp;_tr]:border-b">
+                        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                            <th
+                                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                Name
+                            </th>
+                            <th
+                                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                Email
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="[&amp;_tr:last-child]:border-0">
+                        <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                            <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">John Doe</td>
+                            <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">john.doe@example.com</td>
+                            <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Enrolled</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

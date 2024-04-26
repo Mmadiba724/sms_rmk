@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if message != None %}
+        <div class="p-2 bg-green-500 text-white rounded-lg shadow-lg">
+            {{ message }}
+        </div>
+    {% endif %}
+    <form method="post" class="flex flex-col gap-2">
+        <input type="text" required placeholder="Course Name" name="course_name" class="p-2 border rounded-lg">
+        <textarea name="course_desc" required cols="10" rows="5" placeholder="Course Description" class="p-2 border rounded-lg"></textarea>
+        <input type="number" name="duration" required placeholder="Course Duration" class="p-2 border rounded-lg">
+        <input type="text" required name="price" placeholder="Course Price" class="p-2 border rounded-lg">
+        <input type="date" name="date" required placeholder="Start Date" class="p-2 border rounded-lg">
+        <button class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Course </button>
+    </form>
+{% endblock %}

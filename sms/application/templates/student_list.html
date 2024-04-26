@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="flex gap-2 p-4">
-    <input type="text" placeholder="Search Student" class="p-2 rounded-lg border w-full">
-    <button class="p-2 bg-black text-white rounded-lg"> Search </button>
-</div>
-<a href="" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Student </a>
-<h1 class="p-4"> All Students </h1>
+<form method="post" class="flex gap-2 p-4">
+    <input type="text" name="query" required minlength="3" placeholder="Search Student" class="p-2 rounded-lg border w-full">
+    <button class="p-2 bg-black text-white rounded-lg" type="submit"> Search </button>
+</form>
+<a href="/student/add" class="p-2 bg-green-500 text-white rounded-lg shadow-lg"> Add Student </a>
+<p class="text-sm text-gray-500 p-2"> {{ result_count }} Results </p>
 <table class="w-full">
     <thead class="bg-black text-white">
         <tr>
@@ -16,6 +16,16 @@
             <th> Age </th>
         </tr>
     </thead>
+    <tbody>
+        {% for student in all_students %}
+            <tr class="p-2">
+                <th> {{ student.id }} </th>
+                <td> <a href="/student/view/{{ student.id }}" class="text-blue-500">  {{ student.first_name }} {{ student.last_name }} </a> </td>
+                <td> {{ student.email }} </td>
+                <td> {{ student.age }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

@@ -21,11 +21,6 @@
                 <option value="Female"> Female </option>
             </select>
         </div>
-        <select name="course" id="">
-            {% for each in all_courses %}
-                <option value="{{ each.id }}"> {{ each.course_name }} </option>
-            {% endfor %}
-        </select>
         <button type="submit" class="p-2 rounded-lg shadow bg-green-500 text-white"> Add Student </button>
     </form>
 {% endblock %}
